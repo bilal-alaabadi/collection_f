@@ -1,25 +1,26 @@
 // HeroSection.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import card1 from "../../assets/IMG_0064.jpg";
-import card2 from "../../assets/IMG_3440.png";
-import card3 from "../../assets/IMG_3441.png";
-import card4 from "../../assets/IMG_0067.jpg";
-import log from "../../assets/Screenshot_2025-08-23_183158-removebg-preview.png"; // شعار الأنثور
+import card1 from "../../assets/ChatGPT Image Oct 31, 2025, 06_22_28 PM.png";
+import card2 from "../../assets/top-view-green-matcha-still-life.jpg";
+import card3 from "../../assets/ChatGPT Image Oct 31, 2025, 06_32_40 PM.png";
+import card4 from "../../assets/dark-coffee-beans-bowl-brown-table.jpg";
+import log from "../../assets/ChatGPT Image Oct 31, 2025, 05_36_06 PM.png"; // شعار الأنثور
 
 const cards = [
-  { id: 1, image: card1, trend: '  ', title: 'تفصيل العبايات' },
-  { id: 4, image: card4, trend: ' ',  title: 'دريسات' },
-  { id: 2, image: card2, trend: '  ', title: 'الشيلات' },
-  { id: 3, image: card3, trend: '  ', title: 'العطور' },
+  { id: 1, image: card1, trend: '  ', title: 'أدوات' },
+  { id: 2, image: card2, trend: ' ',  title: 'الماتشا' },
+  { id: 3, image: card3, trend: ' ',  title: 'الشوكولاتة الساخنة' },
+  { id: 4, image: card4, trend: ' ',  title: 'القهوة' },
+
 ];
 
 // خريطة ربط عناوين الكروت مع فلاتر المتجر الموجودة
 const categoryMap = {
-  'تفصيل العبايات': 'تفصيل العبايات',
-  'دريسات': 'دريسات',
-  'العطور': 'العطور',
-  'الشيلات': 'الشيلات سادة', // ينقله مباشرة لفلتر الشيلات
+  'أدوات': 'أدوات',
+  'الماتشا': 'الماتشا',
+  'الشوكولاتة الساخنة': 'الشوكولاتة الساخنة',
+  'القهوة': 'القهوة',
 };
 
 const HeroSection = () => {
@@ -33,7 +34,7 @@ const HeroSection = () => {
   return (
     <section className=' px-4 py-8'>
       <div className="relative text-center" dir="rtl">
-        <h2 className="text-[32px] font-normal text-[#CB908B] mb-1">أستكشف مجموعاتنا المميزة</h2>
+        <h2 className="text-[32px] font-normal text-[#1F2C1F] mb-1">أستكشف مجموعاتنا المميزة</h2>
         <p className="text-[32px] font-bold text-[#3c3c3c] mb-4">عبر أقسامنا الفريدة</p>
 
         <div className="flex items-center justify-center gap-3 relative z-10">

@@ -7,12 +7,11 @@ import { useAddProductMutation } from '../../../../redux/features/products/produ
 import { useNavigate } from 'react-router-dom';
 
 const categories = [
-  { label: 'أختر منتج', value: '' },
-  { label: 'تفصيل العبايات', value: 'تفصيل العبايات' },
-  { label: 'الشيلات فرنسية', value: 'الشيلات فرنسية' },
-  { label: 'الشيلات سادة', value: 'الشيلات سادة' },
-  { label: 'العطور', value: 'العطور' },
-  { label: 'دريسات', value: 'دريسات' },
+  { label: 'الكل', value: 'الكل' },
+  { label: 'أدوات', value: 'أدوات' },
+  { label: 'الماتشا', value: 'الماتشا' },
+  { label: 'الشوكولاتة الساخنة', value: 'الشوكولاتة الساخنة' },
+  { label: 'القهوة', value: 'القهوة' },
 ];
 
 const AddProduct = () => {
@@ -20,11 +19,12 @@ const AddProduct = () => {
 
   const [product, setProduct] = useState({
     name: '',
+    size: '',            // جديد: الحجم (اختياري)
     category: '',
     price: '',
     description: '',
     oldPrice: '',
-    inStock: true, // متوفر افتراضياً
+    inStock: true,        // متوفر افتراضياً
   });
 
   const [image, setImage] = useState([]);
@@ -35,7 +35,6 @@ const AddProduct = () => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (name === 'ended' && type === 'checkbox') {
-      // إذا تم التأشير على "هل انتهى المنتج؟" = نعم → inStock = false
       setProduct((prev) => ({ ...prev, inStock: !checked }));
     } else {
       setProduct((prev) => ({ ...prev, [name]: value }));
@@ -70,7 +69,15 @@ const AddProduct = () => {
       }).unwrap();
 
       alert('تمت أضافة المنتج بنجاح');
-      setProduct({ name: '', category: '', oldPrice: '', price: '', description: '', inStock: true });
+      setProduct({
+        name: '',
+        size: '',
+        category: '',
+        oldPrice: '',
+        price: '',
+        description: '',
+        inStock: true
+      });
       setImage([]);
       navigate('/shop');
     } catch (err) {
@@ -88,6 +95,15 @@ const AddProduct = () => {
           name="name"
           placeholder="أكتب أسم المنتج"
           value={product.name}
+          onChange={handleChange}
+        />
+
+        {/* جديد: الحجم (اختياري) */}
+        <TextInput
+          label="الحجم (اختياري)"
+          name="size"
+          placeholder="مثال: 250g | 12pcs | Medium"
+          value={product.size}
           onChange={handleChange}
         />
 
